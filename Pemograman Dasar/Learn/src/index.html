@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulatornya pais</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('background.jpg'); /* Ganti 'background.jpg' dengan path gambar latar yang diinginkan */
+            background-size: cover;
+            color: white;
+            text-align: center;
+        }
+        .calculator {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+        }
+        .display {
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+        .button {
+            padding: 20px;
+            font-size: 1.2em;
+            cursor: pointer;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            border-radius: 5px;
+        }
+        .button:active {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <div class="display" id="display">0</div>
+        <div class="buttons">
+            <button class="button" onclick="appendNumber('1')">1</button>
+            <button class="button" onclick="appendNumber('2')">2</button>
+            <button class="button" onclick="appendNumber('3')">3</button>
+            <button class="button" onclick="appendNumber('+')">+</button>
+            <button class="button" onclick="appendNumber('4')">4</button>
+            <button class="button" onclick="appendNumber('5')">5</button>
+            <button class="button" onclick="appendNumber('6')">6</button>
+            <button class="button" onclick="appendNumber('-')">-</button>
+            <button class="button" onclick="appendNumber('7')">7</button>
+            <button class="button" onclick="appendNumber('8')">8</button>
+            <button class="button" onclick="appendNumber('9')">9</button>
+            <button class="button" onclick="appendNumber('')"></button>
+            <button class="button" onclick="appendNumber('0')">0</button>
+            <button class="button" onclick="calculate()">=</button>
+            <button class="button" onclick="clearDisplay()">C</button>
+            <button class="button" onclick="appendNumber('/')">/</button>
+        </div>
+    </div>
+
+    <script>
+        let display = document.getElementById("display");
+
+        function appendNumber(num) {
+            if (display.innerText === "0") {
+                display.innerText = num;
+            } else {
+                display.innerText += num;
+            }
+        }
+
+        function clearDisplay() {
+            display.innerText = "ga bisa lah kocak";
+        }
+
+        function calculate() {
+            let result;
+            try {
+                result = eval(display.innerText);
+            } catch {
+                result = "Error kah maniezz?";
+            }
+
+            displayResult(result);
+        }
+
+        function displayResult(result) {
+            switch(result) {
+                case 1:
+                    display.innerText = "1";
+                    break;
+                case 2:
+                    display.innerText = "makrup The Almighty";
+                    break;
+                case 3:
+                    display.innerText = "lukimak";
+                    break;
+                case 4:
+                    display.innerText = "fuad";
+                    break;
+                case 5:
+                    display.innerText = "rusdi";
+                    break;
+                case 6:
+                    display.innerText = "si imut";
+                    break;
+                case 7:
+                    display.innerText = "yes king";
+                    break;
+                case 8:
+                    display.innerText = "suki fomo";
+                    break;
+                case 9:
+                    display.innerText = "ambatukam";
+                    break;
+                case 10:
+                    display.innerText = "kapal karam";
+                    break;
+                default:
+                    display.innerText = result;
+            }
+        }
+    </script>
+</body>
+</html>
